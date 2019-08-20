@@ -5,11 +5,14 @@ from AsyncLine import *
 cl = LineNext('ios')
 cl.login(name="syncline")
 
-@cl.poll.hooks(type=25, filters=Filters.command("cnc"))
+@cl.poll.hooks(type=25, filters=Filters.text)
 async def cnc_message(msg):
 
-	X = cl.getGroup(msg.to)
-		await gInviMids = [contact.mid for contact in X.invitee]
+	if text == "helo":
+		X = cl.getGroup(msg.to)
+		await asyncio.sleep(1)
+		gInviMids = [contact.mid for contact in X.invitee]
+		await asyncio.sleep(2)
 		cl.cancelGroupInvitation(msg.to, gInviMids)
 
 cl.poll.streams()

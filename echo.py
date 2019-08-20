@@ -5,7 +5,7 @@ from AsyncLine import *
 cl = LineNext('ios')
 cl.login(name="syncline")
 
-@cl.poll.hooks(type=25, filters=Filters.command("cnc", separator="\n"))
+@cl.poll.hooks(type=25, filters=Filters.command("cnc"))
 async def cnc_message(msg):
 
 	X = cl.getGroup(msg.to)

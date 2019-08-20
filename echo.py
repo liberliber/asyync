@@ -9,10 +9,10 @@ cl.login(name="syncline")
 async def cnc_message(msg):
 
 	if text == "helo":
-		X = cl.getGroup(msg.to)
+		X = cl.talk.getGroups(msg.to)
 		await asyncio.sleep(1)
 		gInviMids = [contact.mid for contact in X.invitee]
 		await asyncio.sleep(2)
-		cl.cancelGroupInvitation(msg.to, gInviMids)
+		cl.talk.cancelGroupInvitation(msg.to, gInviMids)
 
 cl.poll.streams()

@@ -5,16 +5,11 @@ from AsyncLine import *
 cl = LineNext('ios')
 cl.login(name="syncline")
 
-@cl.poll.hooks(type=25, filters=Filters.text)
-async def echo_message(msg):
-	"""
-	This function will be catch all any message of text
-	"""
-	
-	text = msg.text.lower()
-	if text == "helo":
-		await cl.talk.sendMessage(msg.to, "Hello")
-	if text == "hey":
-		await cl.talk.sendMessage(msg.to, "hey")
+@cl.poll.hooks(type=25, filters=Filters.command("cnc", separator="\n"))
+async def cnc_message(msg):
+
+	X = cl.getGroup(msg.to)
+		await gInviMids = [contact.mid for contact in X.invitee]
+		cl.cancelGroupInvitation(msg.to, gInviMids)
 
 cl.poll.streams()
